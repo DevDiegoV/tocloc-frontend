@@ -65,13 +65,10 @@ const VenueList = ({ venues = [], onVenueDeleted }) => {
       const dataHora = `${selectedDate}T${selectedTime}:00`;
 
       const isTimeSlotTaken = existingReservations.some(reservation => {
-        const reservationDate = new Date(reservation.dataHora).toISOString().split('T')[0];
-        const reservationTime = new Date(reservation.dataHora).toLocaleTimeString([], { 
-          hour: '2-digit', 
-          minute: '2-digit',
-          hour12: false 
-        });
-        return reservationDate === selectedDate && reservationTime === selectedTime;
+        const reservationDateTime = new Date(reservation.dataHora);
+        const selectedDateTime = new Date(dataHora);
+        
+        return reservationDateTime.getTime() === selectedDateTime.getTime();
       });
 
       if (isTimeSlotTaken) {
@@ -304,13 +301,15 @@ const VenueList = ({ venues = [], onVenueDeleted }) => {
                       value={selectedTime}
                       readOnly
                       className={`text-center ${
-                        existingReservations.some(r => 
-                          new Date(r.dataHora).toLocaleTimeString([], { 
+                        existingReservations.some(r => {
+                          const reservationDate = new Date(r.dataHora).toISOString().split('T')[0];
+                          const reservationTime = new Date(r.dataHora).toLocaleTimeString([], { 
                             hour: '2-digit', 
                             minute: '2-digit',
                             hour12: false 
-                          }) === selectedTime
-                        ) ? 'bg-danger text-white' : ''
+                          });
+                          return reservationDate === selectedDate && reservationTime === selectedTime;
+                        }) ? 'bg-danger text-white' : ''
                       }`}
                       style={{ width: '80px' }}
                       size="sm"

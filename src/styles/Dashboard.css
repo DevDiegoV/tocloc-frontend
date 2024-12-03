@@ -49,7 +49,6 @@
   color: #0d6efd !important;
   background-color: #f8f9fa;
   border-color: #0d6efd;
-  transform: translateX(5px);
 }
 
 .dashboard-nav .nav-link.active {
@@ -57,7 +56,6 @@
   background-color: #0d6efd !important;
   border-color: #0d6efd;
   box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
-  transform: translateX(5px);
 }
 
 .dashboard-nav .nav-link.active:hover {
@@ -69,13 +67,19 @@
 }
 
 .reservation-card {
-  height: 100%;
-  transition: transform 0.2s ease;
-  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  padding: 1rem;
+  height: auto;
+  min-height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .reservation-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .venue-name {
@@ -132,38 +136,10 @@
 
 .reservations-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(250px, 1fr));
   gap: 1.5rem;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-  justify-content: center;
-}
-
-/* Quando houver apenas 1 reserva */
-.reservations-grid.single-card {
-  grid-template-columns: minmax(250px, 400px);
-}
-
-/* Quando houver 2 reservas */
-.reservations-grid.two-cards {
-  grid-template-columns: repeat(2, minmax(250px, 400px));
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .reservations-grid,
-  .reservations-grid.single-card,
-  .reservations-grid.two-cards {
-    grid-template-columns: minmax(250px, 400px);
-    max-width: 500px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1200px) {
-  .reservations-grid {
-    grid-template-columns: repeat(2, minmax(250px, 400px));
-  }
+  max-width: 1400px;
 }
 
 .sidebar-nav-link {
@@ -183,4 +159,128 @@
 
 .dashboard-nav .nav-link:not(.active):hover svg {
   color: #0d6efd;
+}
+
+/* Adicione estes estilos para ajustar os botões */
+@media (max-width: 768px) {
+  .dashboard-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .dashboard-nav .nav-item {
+    width: 100%;
+    max-width: 280px; /* Limita a largura máxima do botão */
+  }
+
+  .dashboard-nav .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .dashboard-nav .nav-link svg {
+    font-size: 1rem;
+    margin-right: 8px;
+  }
+
+  .reservations-grid {
+    grid-template-columns: minmax(250px, 400px);
+    max-width: 500px;
+    gap: 1rem;
+  }
+
+  .reservation-card {
+    padding: 0.875rem;
+  }
+
+  .venue-name {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    word-break: break-word;
+  }
+
+  .reservation-details {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .reservation-details p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-nav .nav-item {
+    max-width: 250px; /* Reduz um pouco a largura máxima em telas muito pequenas */
+  }
+
+  .dashboard-nav .nav-link {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .reservations-grid {
+    padding: 0 0.5rem;
+  }
+
+  .reservation-card {
+    padding: 0.75rem;
+  }
+
+  .venue-name {
+    font-size: 0.95rem;
+  }
+
+  .reservation-details {
+    font-size: 0.85rem;
+  }
+
+  .reservation-count {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+/* Ajuste para telas médias */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .reservations-grid {
+    grid-template-columns: repeat(2, minmax(250px, 400px));
+  }
+}
+
+/* Ajustes responsivos */
+@media (min-width: 1201px) {
+  .reservations-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .reservation-card {
+    max-width: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .reservations-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .reservations-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 1rem;
+  }
 }
