@@ -115,7 +115,7 @@ const VenueRegister = () => {
                     <Button 
                       variant="primary" 
                       type="submit"
-                      disabled={!formData.nome || !formData.endereco || success}
+                      disabled={!formData.nome || !formData.endereco}
                     >
                       Cadastrar Local
                     </Button>

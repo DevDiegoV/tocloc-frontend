@@ -94,7 +94,6 @@ const Dashboard = () => {
         id: user.id,
         name: editForm.name,
         email: editForm.email,
-        role: user.role,
         ...(editForm.password && { password: editForm.password })
       };
 
@@ -107,7 +106,6 @@ const Dashboard = () => {
           ...user,
           name: editForm.name,
           email: response.data.email,
-          role: response.data.role || user.role
         };
 
         localStorage.setItem('user', JSON.stringify(updatedUser));

@@ -37,7 +37,6 @@ export const authService = {
       const apiData = {
         name: userData.name,
         email: userData.email,
-        role: userData.role,
         ...(userData.password && { password: userData.password })
       };
 

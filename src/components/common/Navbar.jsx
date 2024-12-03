@@ -77,8 +77,8 @@ const Navigation = () => {
             ) : (
               <Dropdown align="end">
                 <Dropdown.Toggle variant="link" className="nav-user-dropdown text-white border-0 d-flex align-items-center">
-                  <div className="user-avatar me-2">
-                    <FaUser />
+                  <div className="me-2">
+                    <FaUser style={{ marginBottom: '4px'}}/>
                   </div>
                   <span className="me-1">{currentUser.name || 'Minha Conta'}</span>
                 </Dropdown.Toggle>
