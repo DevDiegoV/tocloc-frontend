@@ -1,0 +1,88 @@
+.reservation-modal {
+  max-width: 400px;
+  width: 100%;
+  margin: 1.75rem auto;
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+  .reservation-modal {
+    max-width: 90%;
+    margin: 1rem auto;
+  }
+} 
+
+/* Estilos para os cards */
+.card {
+  transition: transform 0.2s ease-in-out;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.card-text {
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+/* Ajustes de grid */
+.row.justify-content-center {
+  margin: 0 -0.75rem;
+}
+
+.col {
+  padding: 0 0.75rem;
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1rem;
+  }
+} 
+
+.btn-link {
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  opacity: 0.8;
+}
+
+.card-title {
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+.hover-shadow {
+  transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn-primary {
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-weight: 500;
+}
+
+.text-muted small {
+  font-size: 0.875rem;
+} 
